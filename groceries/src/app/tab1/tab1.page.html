@@ -15,7 +15,9 @@
   
   <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
   
-  <h3 *ngIf="loadItems().length == 0" style="text-align:center;">No items to display.</h3>
+  <div *ngIf="loadItems().length == 0" style="text-align:center;">
+    <h3 class="no-item">No items to display.</h3>
+  </div>
 
   <ion-list>
     <ion-item-sliding *ngFor = "let item of loadItems(); let i = index">
@@ -24,8 +26,8 @@
         <p>{{item.quantity}}</p>
       </ion-item>
       <ion-item-options side="end">
-        <ion-item-option (click)="editItem(item, i)" color="primary"><ion-icon name="create"></ion-icon>Edit</ion-item-option>
-        <ion-item-option (click)="removeItem(item, i)" color="secondary"><ion-icon name="trash"></ion-icon>Done</ion-item-option>
+        <ion-item-option (click)="editItem(item, i)" color="secondary"><ion-icon name="create"></ion-icon>Edit</ion-item-option>
+        <ion-item-option (click)="removeItem(item, i)" color="danger"><ion-icon name="trash"></ion-icon>Done</ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
   
